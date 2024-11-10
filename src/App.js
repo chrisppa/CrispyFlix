@@ -16,7 +16,7 @@ const App = () => {
     setMovies(data.Search);
   };
   useEffect(() => {
-    searchMovies("Lord of the Rings");
+    searchMovies();
   }, []);
 
   return (
@@ -27,9 +27,17 @@ const App = () => {
         <input
           placeholder="search movies"
           value={searchTitle}
-          onChange={(e) => {setSearchTitle(e.target.value)}}
+          onChange={(e) => {
+            setSearchTitle(e.target.value);
+          }}
         />
-        <img src={SearchIcon} alt="search" onClick={() => {searchMovies(searchTitle)}} />
+        <img
+          src={SearchIcon}
+          alt="search"
+          onClick={() => {
+            searchMovies(searchTitle)
+          }}
+        />
       </div>
 
       {movies?.length > 0 ? (
